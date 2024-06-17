@@ -1,0 +1,11 @@
+Fight Code: F1237 ,Departure City: HCM ,Destination City: Nha Trang ,Departure Time: 03/11/2023 05:10 ,Arrival Time: 03/11/2023 15:10 ,Available Seats: 55
+Fight Code: F1233 ,Departure City: VT ,Destination City: HCM ,Departure Time: 01/11/2023 18:00 ,Arrival Time: 01/11/2023 18:30 ,Available Seats: 55
+Fight Code: F1236 ,Departure City: HCM ,Destination City: Ha Noi ,Departure Time: 01/11/2023 08:34 ,Arrival Time: 01/11/2023 11:15 ,Available Seats: 50
+Fight Code: F1234 ,Departure City: VT ,Destination City: HCM ,Departure Time: 01/11/2023 05:00 ,Arrival Time: 01/11/2023 05:30 ,Available Seats: 58
+Fight Code: F1235 ,Departure City: VT ,Destination City: HCM ,Departure Time: 26/10/2023 11:00 ,Arrival Time: 26/10/2023 11:30 ,Available Seats: 50
+Passenger:  Reservation ID: 0064580 ,Passenger Name: Duong ,Contact Details: 0989902912 ,Seat Number: 1 
+Fight Code: F1234 ,Departure City: VT ,Destination City: HCM ,Departure Time: 01/11/2023 05:00 ,Arrival Time: 01/11/2023 05:30 ,Available Seats: 58
+Passenger:  Reservation ID: 51004 ,Passenger Name: Anh ,Contact Details: 0989573212 ,Seat Number: 3 
+Fight Code: F1234 ,Departure City: VT ,Destination City: HCM ,Departure Time: 01/11/2023 05:00 ,Arrival Time: 01/11/2023 05:30 ,Available Seats: 58
+Passenger:  Reservation ID: 157837 ,Passenger Name: Hung ,Contact Details: 02412356 ,Seat Number: 0 
+Fight Code: F1233 ,Departure City: VT ,Destination City: HCM ,Departure Time: 01/11/2023 18:00 ,Arrival Time: 01/11/2023 18:30 ,Available Seats: 55
