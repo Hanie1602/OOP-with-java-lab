@@ -156,6 +156,98 @@ public class FlightManagementSystem implements ICewManagement {
     //===================================================
     //Function 3 (Passenger Check-In and Seat Allocation)
     public void passengerCheckIn() {
+    System.out.println("\n========PASSENGER CHECK-IN========");
+
+    String reservationId = getReservationId();
+    Passenger passenger = findPassenger(reservationId);
+    if (passenger == null) {
+        System.out.println("Invalid Reservation ID. Please try again.");
+        return;
+    }
+
+    Flight flight = passenger.getFlight();
+    if (!hasAvailableSeats(flight)) {
+        System.out.println("No available seats for this flight.");
+        return;
+    }
+
+    displaySeatAvailability(flight);
+
+    int selectedSeat = assignSeatAutomatically(flight, passenger);
+    if (selectedSeat == -1) {
+        System.out.println("No available seats. Check-in failed.");
+        return;
+    }
+
+    if (wantsToChangeSeat()) {
+        selectedSeat = chooseSeat(flight, passenger);
+        if (selectedSeat == -1) {
+            System.out.println("No available seats. Check-in failed.");
+            return;
+        }
+    }
+
+    generateBoardingPass(passenger, flight, selectedSeat);
+    System.out.println("Check-in successful. Seat " + selectedSeat + " allocated.");
+}
+
+private String getReservationId() {
+    return Utils.getString("Enter Reservation ID: ", "Reservation ID cannot be empty.");
+}
+
+private Passenger findPassenger(String reservationId) {
+    return Utils.findPassengerByReservationID(reservationId, listPassenger);
+}
+
+private boolean hasAvailableSeats(Flight flight) {
+    return flight.getAvailableSeats() > 0;
+}
+
+private void displaySeatAvailability(Flight flight) {
+    System.out.println("Seat Availability for Flight " + flight.getFlightNumber() + ": ");
+    Utils.displaySeatAvailability(flight, seatNumber, MAX_SEATS, listPassenger);
+}
+
+private int assignSeatAutomatically(Flight flight, Passenger passenger) {
+    for (int seat = 1; seat <= MAX_SEATS; seat++) {
+        if (isSeatAvailable(flight, seat)) {
+            passenger.setSeatNumber(seat);
+            flight.setAvailableSeats(flight.getAvailableSeats() - 1);
+            System.out.println("Seat " + seat + " has been automatically assigned.");
+            System.out.println("Your seat number is: " + seat);
+            return seat;
+        }
+    }
+    return -1;
+}
+
+private boolean isSeatAvailable(Flight flight, int seat) {
+    for (Passenger p : listPassenger) {
+        if (p.getFlight() == flight && p.getSeatNumber() == seat) {
+            return false;
+        }
+    }
+    return true;
+}
+
+private boolean wantsToChangeSeat() {
+    return Utils.getYesNoAnswer("Do you want to change your seat number?(yes/no): ");
+}
+
+private int chooseSeat(Flight flight, Passenger passenger) {
+    int selectedSeat = getAvailableSeatChoice(flight);
+    if (selectedSeat != -1) {
+        passenger.setSeatNumber(selectedSeat);
+        flight.setAvailableSeats(flight.getAvailableSeats() - 1);
+    }
+    return selectedSeat;
+}
+
+private void generateBoardingPass(Passenger passenger, Flight flight, int selectedSeat) {
+    Utils.generateBoardingPass(passenger, flight);
+}
+
+    /*public void passengerCheckIn() {
         System.out.println("\n========PASSENGER CHECK-IN========");
         reservationId = Utils.getString("Enter Reservation ID: ", "Reservation ID cannot be empty.");
         Passenger passenger = Utils.findPassengerByReservationID(reservationId, listPassenger);
@@ -220,7 +312,7 @@ public class FlightManagementSystem implements ICewManagement {
         Utils.generateBoardingPass(passenger, flight);
 
         System.out.println("Check-in successful. Seat " + selectedSeat + " allocated.");
-    }
+    }*/
 
     //Get the passenger's choice of an available seat
     private int getAvailableSeatChoice(Flight flight) {
