@@ -155,7 +155,11 @@ public class FlightManagementSystem implements ICewManagement {
 
     //===================================================
     //Function 3 (Passenger Check-In and Seat Allocation)
-    public void passengerCheckIn() {
+    
+//===============================================================================================
+//=====================================BẢN ĐÃ CHỈNH SỬA==========================================
+//===============================================================================================
+    /*public void passengerCheckIn() {
     System.out.println("\n========PASSENGER CHECK-IN========");
 
     String reservationId = getReservationId();
@@ -245,9 +249,12 @@ private int chooseSeat(Flight flight, Passenger passenger) {
 
 private void generateBoardingPass(Passenger passenger, Flight flight, int selectedSeat) {
     Utils.generateBoardingPass(passenger, flight);
-}
+}*/
 
-    /*public void passengerCheckIn() {
+//===============================================================================================
+//====================================BẢN CHƯA CHỈNH SỬA=========================================
+//===============================================================================================
+    public void passengerCheckIn() {
         System.out.println("\n========PASSENGER CHECK-IN========");
         reservationId = Utils.getString("Enter Reservation ID: ", "Reservation ID cannot be empty.");
         Passenger passenger = Utils.findPassengerByReservationID(reservationId, listPassenger);
@@ -312,7 +319,7 @@ private void generateBoardingPass(Passenger passenger, Flight flight, int select
         Utils.generateBoardingPass(passenger, flight);
 
         System.out.println("Check-in successful. Seat " + selectedSeat + " allocated.");
-    }*/
+    }
 
     //Get the passenger's choice of an available seat
     private int getAvailableSeatChoice(Flight flight) {
