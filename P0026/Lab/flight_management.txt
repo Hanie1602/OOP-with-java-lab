@@ -1,0 +1,3 @@
+Fight Code: F1234 ,Departure City: VT ,Destination City: HCM ,Departure Time: 15/10/2023 13:00 ,Arrival Time: 15/10/2023 14:00 ,Available Seats: 50
+Passenger:  Reservation ID: 941915 ,Passenger Name: Duong ,Contact Details: 0989902912 ,Seat Number: null 
+Fight Code: F1234 ,Departure City: VT ,Destination City: HCM ,Departure Time: 15/10/2023 13:00 ,Arrival Time: 15/10/2023 14:00 ,Available Seats: 50
